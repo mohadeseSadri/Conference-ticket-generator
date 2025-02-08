@@ -1,12 +1,24 @@
 @font-face {
-    font-family: 'MyCustomFont';
-    src: url('../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.woff2') format('woff2'),
-         url('../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.woff') format('woff'),
-         url('../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: "MyCustomFont";
+  src:
+    url("../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.woff2")
+      format("woff2"),
+    url("../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.woff")
+      format("woff"),
+    url("../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-body{
-    font-family: 'MyCustomFont', sans-serif;
+body {
+  font-family: "MyCustomFont", sans-serif;
+  background-image: url("../src/assets/Images/background-desktop.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: aliceblue;
 }
