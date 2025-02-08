@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.woff2') format('woff2'),
+         url('../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.woff') format('woff'),
+         url('../src/assets/Font/fonts/Inconsolata-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body{
+    font-family: 'MyCustomFont', sans-serif;
+}
