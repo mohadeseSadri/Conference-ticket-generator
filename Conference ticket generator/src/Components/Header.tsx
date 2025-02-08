@@ -1,4 +1,4 @@
-import logo from "../assets/Images/logo-full.png";
+import logo from "../assets/Images/logo-full.svg";
 import PatternTop from "../assets/Images/pattern-squiggly-line-top.svg";
 function Header() {
   return (
@@ -6,10 +6,11 @@ function Header() {
       <div className="flex items-center justify-center mt-5 display:inline-block; position: relative">
 
         <div className="display:inline-block; position:absolute; ml-[340px]">
+
           <div className="flex items-center justify-center mt-5">
             <div className="flex gap-4">
               <img src={logo} alt="logo"/>
-              <h5 className="text-xl font-bold pt-2">Coding conf</h5>
+              
             </div>
           </div>
 
