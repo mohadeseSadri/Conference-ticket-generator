@@ -4,7 +4,7 @@ function Header() {
     <>
       <div className="flex items-center justify-center mt-5">
         <div className="flex gap-4">
-          <img src={logo} alt="logo w-[200px] h-[100px]" />
+          <img src={logo} alt="logo" />
           <h5 className="text-xl font-bold pt-2">Coding conf</h5>
         </div>
       </div>

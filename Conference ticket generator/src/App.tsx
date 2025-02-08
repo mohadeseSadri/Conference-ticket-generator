@@ -1,5 +1,5 @@
 import Header from "./Components/Header";
-
+import UploadAvatar from "./Components/UploadAvatar";
 
 function App() {
   return (
@@ -7,7 +7,9 @@ function App() {
       <header>
         <Header />
       </header>
-      <main></main>
+      <main>
+        <UploadAvatar/>
+      </main>
     </>
   );
 }
