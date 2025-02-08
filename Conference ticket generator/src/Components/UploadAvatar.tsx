@@ -3,7 +3,6 @@ import Upload from "../assets/Images/icon-upload.svg";
 
 function UploadAvatar() {
   const [image, setImage] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleImageUplod = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -35,7 +34,6 @@ function UploadAvatar() {
                   <p>click to upload an image</p>
                 )}
                 <input
-                  ref={fileInputRef}
                   type="file"
                   accept="image/*"
                   onChange={handleImageUplod}
