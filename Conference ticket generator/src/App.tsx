@@ -1,14 +1,17 @@
 import Header from "./Components/Header";
 import UploadAvatar from "./Components/UploadAvatar";
 import "./index.css";
+import PatternBottomDesktop from "./Components/PatternBottomDesktop";
+
 function App() {
   return (
     <>
       <header>
-        <Header />
+          <Header />
       </header>
       <main>
-        <UploadAvatar/>
+        <UploadAvatar />
+        <PatternBottomDesktop />
       </main>
     </>
   );
