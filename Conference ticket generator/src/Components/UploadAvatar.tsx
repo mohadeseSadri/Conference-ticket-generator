@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Upload from "../assets/Images/icon-upload.svg";
+import Info from "../assets/Images/icon-info.svg";
 
 function UploadAvatar() {
   const [image, setImage] = useState<string | null>(null);
+  const [draggedFiles, setDraggedFiles] = useState<File[]>([]);
 
   const handleImageUplod = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -14,8 +16,6 @@ function UploadAvatar() {
       reader.readAsDataURL(file);
     }
   };
-
-  const [draggedFiles, setDraggedFiles] = useState<File[]>([]);
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -35,11 +35,11 @@ function UploadAvatar() {
         <p className="flex items-center justify-center mt-10">Upload Avatar</p>
 
         <div
-          className="flex items-center justify-center mt-2 cursor-pointer"
+          className="flex items-center justify-center mt-2"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
         >
-          <div className="py-5 px-20 border-2 border-dashed border-gray-500 border-raduce rounded-lg">
+          <div className="py-5 px-20 border-2 border-dashed border-gray-500 border-raduce rounded-lg cursor-pointer">
             <div className="flex items-center justify-center">
               <img src={Upload} alt="Upload" />
             </div>
@@ -60,6 +60,7 @@ function UploadAvatar() {
                   <div className="text-center cursor-pointer transition-colors">
                     {draggedFiles.length > 0 && (
                       <button
+                        type="button"
                         className="mt-4 px-4 py-2 text-white rounded"
                         onClick={clearFiles}
                       >
@@ -89,6 +90,12 @@ function UploadAvatar() {
             </div>
           </div>
         </div>
+
+        <div className="flex items-center justify-center mt-2">
+          <img src={Info} alt="Info" className="pr-2" />
+          <p className="text-[13px] text-stone-300">Upload your photo (JPG or PNG, max size 500kB)</p>
+        </div>
+
       </div>
     </>
   );
