@@ -116,7 +116,7 @@ function UploadAvatar() {
           </div>
         </div>
         {error ? (
-          <p className="text-red-500 flex items-center justify-center mt-2">
+          <p className="text-red-500 flex items-center justify-center mt-2 text-[70%]">
             {error}
           </p>
         ) : (
