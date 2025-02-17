@@ -23,16 +23,18 @@ function UploadAvatar() {
     const files = Array.from(event.dataTransfer.files);
     setDraggedFiles((prevFiles) => [...prevFiles, ...files]);
     if (files.length > 0) {
-      const file = files[0];
-      validateFile(file);
+      validateFile(files[0]);
+    }
+    if (files[0] && files[0].type.startsWith("image/")) {
+      setImage(URL.createObjectURL(files[0]));
+    } else {
+      setImage(null);
     }
   };
 
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
-
-  const clearFiles = () => setDraggedFiles([]);
 
   const validateFile = (file: { size: number; type: string }) => {
     setError("");
@@ -48,6 +50,17 @@ function UploadAvatar() {
       return;
     }
   };
+
+  const clearFiles = () => {
+    setImage(null);
+    setDraggedFiles([]);
+  };
+
+  const changeImage = () => {
+    setImage(null);
+    setDraggedFiles([]);
+  };
+
   return (
     <>
       <div className="display:inline-block; position: relative">
@@ -64,13 +77,25 @@ function UploadAvatar() {
             >
               <div className="pt-4 px-20 border-2 border-dashed border-gray-500 cursor-pointer border-raduce rounded-lg">
                 <div className="flex items-center justify-center">
-                  <img src={Upload} alt="Upload" className="bg-gray-800 border-raduce rounded-lg p-1"/>
+                  {image ? (
+                    <img
+                      src={image}
+                      alt="Change Avatar"
+                      className="w-10 h-10 border-2 border-gray-500 border-raduce rounded-lg"
+                    />
+                  ) : (
+                    <img
+                      src={Upload}
+                      alt="Upload"
+                      className="bg-gray-800 border-raduce rounded-lg p-1"
+                    />
+                  )}
                 </div>
 
                 <div className="flex items-center justify-center">
                   <div className="text-center">
                     {image ? (
-                      <img src={image} alt="Uploade" />
+                      ""
                     ) : (
                       <>
                         <p className="text-xl font-medium text-gray-700">
@@ -85,25 +110,25 @@ function UploadAvatar() {
                         <div className="p-4">
                           <div className="text-center cursor-pointer transition-colors">
                             {draggedFiles.length > 0 && (
-                              <button
-                                type="button"
-                                className="mt-4 px-4 py-2 text-white rounded"
-                                onClick={clearFiles}
-                              >
-                                Clear Files
-                              </button>
+                              <>
+                                <button
+                                  type="button"
+                                  className="mt-1 mx-2 px-2 text-white bg-gray-800 border-raduce rounded-lg cursor-pointer hover:underline"
+                                  onClick={clearFiles}
+                                >
+                                  Remove image
+                                </button>
+                                <button
+                                  type="button"
+                                  className="mt-1 mx-2 px-2 text-white bg-gray-800 border-raduce rounded-lg cursor-pointer hover:underline"
+                                  title="Change image"
+                                  onClick={changeImage}
+                                >
+                                  Change image
+                                </button>
+                              </>
                             )}
                           </div>
-
-                          {draggedFiles.length > 0 && (
-                            <div className="grid grid-cols-1 gap-4 mt-6">
-                              {draggedFiles.map((file, index) => (
-                                <div key={index} className="p-4 rounded shadow">
-                                  <p>{file.name}</p>
-                                </div>
-                              ))}
-                            </div>
-                          )}
                         </div>
                       </>
                     )}
@@ -118,9 +143,7 @@ function UploadAvatar() {
               </div>
             </div>
             {error ? (
-              <p className="text-red-500 flex mt-2 text-[70%]">
-                {error}
-              </p>
+              <p className="text-red-500 flex mt-2 text-[70%]">{error}</p>
             ) : (
               <div className="flex mt-2">
                 <img src={Info} alt="Info" className="pr-2" />
