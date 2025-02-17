@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Inputs() {
+function Form() {
   const [email, ] = useState("");
   const [error, setError] = useState("");
   const validateEmail = (input: string) => {
@@ -26,7 +26,7 @@ function Inputs() {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="relative">
         <div className="flex items-center justify-center">
           <div>
             <div>
@@ -65,7 +65,7 @@ function Inputs() {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="w-[450px] bg-orange-600 mt-8 rounded-lg px-6 py-2"
+                className="w-[450px] bg-[#E97464] mt-5 rounded-lg px-6 py-2 text-black font-bold"
               >
                 Generate My Ticket
               </button>
@@ -77,4 +77,4 @@ function Inputs() {
   );
 }
 
-export default Inputs;
+export default Form;

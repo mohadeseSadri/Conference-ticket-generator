@@ -3,7 +3,7 @@ import PatternTop from "../assets/Images/pattern-squiggly-line-top.svg";
 function Header() {
   return (
     <>
-      <div className="flex items-center justify-center mt-5 display:inline-block; position: relative">
+      <div className="flex items-center justify-center display:inline-block; position: relative">
 
         <div className="display:inline-block; position:absolute; ml-[340px]">
 
@@ -20,7 +20,7 @@ function Header() {
             </h1>
           </div>
 
-          <div className="flex items-center justify-center mt-10">
+          <div className="flex items-center justify-center mt-5">
             <p className="text-center">
               Secure your spot at next year's biggest coding conference
             </p>

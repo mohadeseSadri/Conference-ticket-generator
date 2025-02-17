@@ -2,7 +2,7 @@ import PatternBottom from "../assets/Images/pattern-squiggly-line-bottom-desktop
 function PatternBottomDesktop() {
   return (
     <div>
-        <img src={PatternBottom} alt="" />
+        <img src={PatternBottom} alt="" className="absolute bottom-0 left-0" />
     </div>
   )
 }
